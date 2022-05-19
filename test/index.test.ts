@@ -151,7 +151,7 @@ describe("Conjunction tests", () => {
 describe("Minutes tests", () => {
   it("Should get the 'diez' minute", () => {
     let date: Date = new Date();
-    date.setMinutes(5);
+    date.setMinutes(10);
 
     const expected: number[][] = getEntryPositionByParam(matrix, "diez");
     const actual: number[][] = getMinutes(date, matrix);
@@ -160,7 +160,7 @@ describe("Minutes tests", () => {
   });
   it("Should get the 'cuarto' minute", () => {
     let date: Date = new Date();
-    date.setMinutes(12);
+    date.setMinutes(18);
 
     const expected: number[][] = getEntryPositionByParam(matrix, "cuarto");
     const actual: number[][] = getMinutes(date, matrix);
@@ -169,7 +169,7 @@ describe("Minutes tests", () => {
   });
   it("Should get the 'veinte' minute", () => {
     let date: Date = new Date();
-    date.setMinutes(17);
+    date.setMinutes(41);
 
     const expected: number[][] = getEntryPositionByParam(matrix, "veinte");
     const actual: number[][] = getMinutes(date, matrix);
@@ -178,7 +178,7 @@ describe("Minutes tests", () => {
   });
   it("Should get the 'veinticinco' minute", () => {
     let date: Date = new Date();
-    date.setMinutes(33);
+    date.setMinutes(28);
 
     const expected: number[][] = getEntryPositionByParam(matrix, "veinticinco");
     const actual: number[][] = getMinutes(date, matrix);
@@ -187,7 +187,7 @@ describe("Minutes tests", () => {
   });
   it("Should get the 'media' minute", () => {
     let date: Date = new Date();
-    date.setMinutes(28);
+    date.setMinutes(32);
 
     const expected: number[][] = getEntryPositionByParam(matrix, "media");
     const actual: number[][] = getMinutes(date, matrix);

@@ -1,6 +1,6 @@
 {
   "name": "@danicolms/word-clock-utils",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "Utility library for the @danicolms/word-clock project",
   "main": "dist/index.js",
   "scope": "@danicolms",
@@ -13,9 +13,6 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/danicolms/word-clock-utils.git"
-  },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
   },
   "author": "@danicolms",
   "license": "Apache-2.0",

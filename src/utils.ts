@@ -137,21 +137,21 @@ export const getMinutes = (
     const minutes: number = date.getMinutes();
     let value: string | undefined = undefined;
 
-    if ((minutes > 0 && minutes <= 10) || (minutes > 45 && minutes <= 59)) {
+    if ((minutes >= 10 && minutes < 15) || (minutes >= 50 && minutes <= 59)) {
       value = "diez";
     } else if (
-      (minutes > 10 && minutes <= 15) ||
-      (minutes > 35 && minutes <= 45)
+      (minutes >= 15 && minutes < 20) ||
+      (minutes >=45 && minutes < 50)
     ) {
       value = "cuarto";
-    } else if (minutes > 15 && minutes <= 20) {
+    } else if ((minutes >= 20 && minutes < 25) || (minutes >= 40 && minutes < 45)) {
       value = "veinte";
     } else if (
-      (minutes > 20 && minutes <= 25) ||
-      (minutes > 30 && minutes <= 35)
+      (minutes >= 25 && minutes < 30) ||
+      (minutes >= 35 && minutes < 40)
     ) {
       value = "veinticinco";
-    } else if (minutes > 25 && minutes <= 30) {
+    } else if (minutes >= 30 && minutes < 35) {
       value = "media";
     }
 
