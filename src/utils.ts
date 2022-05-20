@@ -118,8 +118,13 @@ export const getHour = (date: Date, matrix: IMatrixItem[]): number[][] => {
 export const getConjunction = (
   date: Date,
   matrix: IMatrixItem[]
-): number[][] => {
+): number[][]  => {
   try {
+
+    if (date.getMinutes() < 10) {
+      return [];
+    }
+
     return date.getMinutes() > 30
       ? getEntryPositionByParam(matrix, "menos")
       : getEntryPositionByParam(matrix, "y");
@@ -141,7 +146,7 @@ export const getConjunction = (
 export const getMinutes = (
   date: Date,
   matrix: IMatrixItem[]
-): number[][] | undefined => {
+): number[][] | [] => {
   try {
     const minutes: number = date.getMinutes();
     let value: string | undefined = undefined;
@@ -167,7 +172,7 @@ export const getMinutes = (
     if (value) {
       return getEntryPositionByParam(matrix, value);
     } else {
-      return;
+      return [];
     }
   } catch (error: any) {
     console.error("Error: Couldn't find the minutes for the selected date.");

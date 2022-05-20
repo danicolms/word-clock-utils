@@ -8,6 +8,7 @@ import {
 } from "./utils";
 
 export const getCurrentTimePositions = (date: Date): number[][] => {
+
   return [
     ...getVerb(date, matrix),
     ...getPronoun(date, matrix),
@@ -16,3 +17,4 @@ export const getCurrentTimePositions = (date: Date): number[][] => {
     ...getMinutes(date, matrix),
   ];
 };
+
