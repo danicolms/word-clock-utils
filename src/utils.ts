@@ -5,9 +5,16 @@ import { IMatrixItem } from "./matrix";
  * @param {Date} date the date from which the hour will be parsed.
  * @returns {number} the hour number in 12 hour format.
  */
-const getTwelveHourFormatHour = (date: Date): number => {
+export const getTwelveHourFormatHour = (date: Date): number => {
   const hour = date.getHours();
-  return hour < 12 ? hour : hour - 12;
+  const minutes = date.getMinutes();
+
+
+  if (minutes >= 35) {
+    return (hour + 1) < 12 ? (hour + 1) : (hour + 1) - 12
+  } else {
+    return hour < 12 ? hour : hour - 12
+  }
 };
 
 /**
@@ -26,9 +33,11 @@ export const getEntryPositionByParam = (
 ): number[][] => {
   try {
     const entry = matrix.find((entry) => {
+
+
       if (hasNumber) {
-        const twelveHourFormatNumber = number <= 12 ? number : number - 12;
-        if (entry.number === twelveHourFormatNumber) {
+        // const twelveHourFormatNumber = number <= 12 ? number : number - 12;
+        if (entry.number === number) {
           return entry;
         }
       } else if (entry.word === word && entry.number === undefined) {
@@ -141,7 +150,7 @@ export const getMinutes = (
       value = "diez";
     } else if (
       (minutes >= 15 && minutes < 20) ||
-      (minutes >=45 && minutes < 50)
+      (minutes >= 45 && minutes < 50)
     ) {
       value = "cuarto";
     } else if ((minutes >= 20 && minutes < 25) || (minutes >= 40 && minutes < 45)) {

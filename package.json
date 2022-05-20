@@ -6,9 +6,9 @@
   "scope": "@danicolms",
   "scripts": {
     "build": "tsc",
-    "start": "npm run build && node dist/index.js",
+    "start": "yarn build && node dist/index.js",
     "test": "ts-mocha test/**.test.*",
-    "publish": "npm run build && yarn publish --access public"
+    "publish": "yarn build && yarn publish --access public"
   },
   "repository": {
     "type": "git",

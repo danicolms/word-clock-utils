@@ -7,6 +7,7 @@ import {
   getHour,
   getConjunction,
   getMinutes,
+  getTwelveHourFormatHour,
 } from "../src/utils";
 
 describe("Get entry position by parameter tests", () => {
@@ -40,7 +41,10 @@ describe("Get entry position by parameter tests", () => {
 describe("Verb tests", () => {
   it("Should get the 'es' verb", () => {
     let date: Date = new Date();
-    date.setHours(13);
+    const hour: number = 13;
+    const minutes: number = 0;
+    date.setHours(hour);
+    date.setMinutes(minutes);
 
     const expected: number[][] = getEntryPositionByParam(matrix, "es");
     const actual: number[][] = getVerb(date, matrix);
@@ -49,7 +53,10 @@ describe("Verb tests", () => {
   });
   it("Should get the 'son' verb", () => {
     let date: Date = new Date();
-    date.setHours(14);
+    const hour: number = 14;
+    const minutes: number = 0;
+    date.setHours(hour);
+    date.setMinutes(minutes);
 
     const expected: number[][] = getEntryPositionByParam(matrix, "son");
     const actual: number[][] = getVerb(date, matrix);
@@ -61,7 +68,10 @@ describe("Verb tests", () => {
 describe("Pronoun tests", () => {
   it("Should get the 'la' pronoun", () => {
     let date: Date = new Date();
-    date.setHours(13);
+    const hour: number = 13;
+    const minutes: number = 0;
+    date.setHours(hour);
+    date.setMinutes(minutes);
 
     const expected: number[][] = getEntryPositionByParam(matrix, "la");
     const actual: number[][] = getPronoun(date, matrix);
@@ -70,7 +80,10 @@ describe("Pronoun tests", () => {
   });
   it("Should get the 'las' pronoun", () => {
     let date: Date = new Date();
-    date.setHours(14);
+    const hour: number = 14;
+    const minutes: number = 0;
+    date.setHours(hour);
+    date.setMinutes(minutes);
 
     const expected: number[][] = getEntryPositionByParam(matrix, "las");
     const actual: number[][] = getPronoun(date, matrix);
@@ -83,13 +96,14 @@ describe("Hour tests", () => {
   it("Should get the 'dos' hour", () => {
     let date: Date = new Date();
     const hour: number = 14;
+    const minutes: number = 0;
     date.setHours(hour);
-
+    date.setMinutes(minutes);
     const expected: number[][] = getEntryPositionByParam(
       matrix,
       undefined,
       true,
-      hour
+      getTwelveHourFormatHour(date)
     );
     const actual: number[][] = getHour(date, matrix);
 
@@ -98,7 +112,9 @@ describe("Hour tests", () => {
   it("Should get the 'ocho' hour", () => {
     let date: Date = new Date();
     const hour: number = 8;
+    const minutes: number = 0;
     date.setHours(hour);
+    date.setMinutes(minutes);
 
     const expected: number[][] = getEntryPositionByParam(
       matrix,
@@ -113,7 +129,9 @@ describe("Hour tests", () => {
   it("Should get the 'doce' hour", () => {
     let date: Date = new Date();
     const hour: number = 0;
+    const minutes: number = 0;
     date.setHours(hour);
+    date.setMinutes(minutes);
 
     const expected: number[][] = getEntryPositionByParam(
       matrix,
@@ -122,6 +140,25 @@ describe("Hour tests", () => {
       hour
     );
     const actual: number[][] = getHour(date, matrix);
+
+    expect(expected).deep.equal(actual);
+  });
+  it("Should get the 'tres' hour", () => {
+    let date: Date = new Date();
+    const hour: number = 14;
+    const minutes: number = 45;
+    date.setHours(hour);
+    date.setMinutes(minutes);
+    
+    const expected: number[][] = getEntryPositionByParam(
+      matrix,
+      undefined,
+      true,
+      getTwelveHourFormatHour(date)
+    );
+    const actual: number[][] = getHour(date, matrix);
+
+-
 
     expect(expected).deep.equal(actual);
   });
@@ -194,5 +231,5 @@ describe("Minutes tests", () => {
 
     expect(expected).deep.equal(actual);
   });
- 
+
 });
